@@ -18,9 +18,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Northern Virginia Real Estate | DMV Realtor",
+  title: "Realtor Showcase — Northern Virginia & the DMV",
   description:
-    "Find your next home in the DMV with an experienced Northern Virginia realtor.",
+    "A personal realtor showcase page for the DMV. One link, personalized per agent.",
 };
 
 export default function RootLayout({

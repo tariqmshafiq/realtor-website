@@ -1,39 +1,43 @@
-# Realtor Showcase — DMV / Northern Virginia
+# Realtor Showcase — Northern Virginia & the DMV
 
-A personalized realtor showcase site for the DMV area. One page, one deploy, hundreds of "personalized" pages — each URL fills in the viewer's name and your contact details from query parameters (mail-merge style).
+A personal realtor showcase page, sent to realtors themselves. One deploy, one URL pattern, hundreds of "personalized" pages — each link is customized for a specific agent by URL parameters (mail-merge style).
+
+Open the page and the realtor's name, company, contact details, reviews, and page title are all filled in for them.
 
 ## URL parameters
 
-| Param   | Meaning            | Default                               |
-| ------- | ------------------ | ------------------------------------- |
-| `to`    | Visitor's name     | `there`                               |
-| `co`    | Company name       | `Mitchell Realty Group`               |
-| `name`  | Your name          | `Sarah Mitchell`                      |
-| `email` | Your email         | `sarah@mitchellrealtygroup.com`       |
-| `phone` | Your phone         | `(703) 555-0142`                      |
-| `line`  | Custom tagline     | `Your trusted guide to buying and selling in Northern Virginia.` |
+| Param   | Meaning                       | Default                               |
+| ------- | ----------------------------- | ------------------------------------- |
+| `to`    | Realtor's first name (greeting) | `there`                              |
+| `name`  | Realtor's full name           | `Sarah Mitchell`                      |
+| `co`    | Company / brokerage           | `Mitchell Realty Group`               |
+| `email` | Realtor's email               | `sarah@mitchellrealtygroup.com`       |
+| `phone` | Realtor's phone               | `(703) 555-0142`                      |
+| `line`  | Custom tagline                | `A realtor site, built around you. …` |
 
 Example:
 
 ```
-https://yoursite.com/?to=Sarah&co=Acme+Realty&name=Jane+Doe&email=jane@acme.com&phone=(555)+214-9999&line=Let%27s+find+your+dream+home+in+the+DMV.
+https://yoursite.com/?to=James&name=James+Carter&co=Evergreen+Realty&email=james@evergreenrealty.com&phone=(571)+333-0101
 ```
 
-Everything (page `<title>`, hero greeting, bio, reviews, CTA buttons, `mailto:`/`tel:` links) is personalized per request. Params are optional — the page renders sensible defaults without them.
+Everything below is personalized per request — the page `<title>`, the greeting, the "about" section, the review headlines, the contact block, and the `tel:` / `mailto:` links. All parameters are optional; the page renders sensible defaults without them.
 
-## Mail-merge workflow
+## Outreach workflow (send to many realtors)
 
 1. Deploy once (e.g. Vercel).
-2. In a spreadsheet, add columns: `to`, `co`, `name`, `email`, `phone`, `line`.
-3. Generate a link per row: `https://yoursite.com/?to={to}&co={co}&name={name}&email={email}&phone={phone}` (URL-encode spaces as `+` or `%20`).
-4. Send each person their own link.
+2. In a spreadsheet, add columns: `to`, `name`, `co`, `email`, `phone`, `line`.
+3. Build a link per realtor: `https://yoursite.com/?to={to}&name={name}&co={co}&email={email}&phone={phone}` (URL-encode spaces as `+` or `%20`).
+4. Send each realtor their own link. One deploy, hundreds of personalized pages, zero extra hosting.
+
+## Design
+
+Restrained, editorial aesthetic: monochrome ink palette, generous whitespace, serif display type, hairline rules, and a single gold accent. Stock photography is served from Unsplash via `next/image` (see `next.config.ts`).
 
 ## Dev
 
 ```bash
 npm run dev       # http://localhost:3000
 npm run lint      # eslint
-npm run build     # production build (static page generates per request — route is dynamic)
+npm run build     # production build (route is dynamic — renders per request)
 ```
-
-Images are served from Unsplash via `next/image` (see `next.config.ts`).
