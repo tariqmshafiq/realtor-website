@@ -41,7 +41,7 @@ const IMG = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
 
 const HERO_IMG = IMG("1512917774080-9991f1c4c750", 2200);
-const PORTRAIT_IMG = IMG("1573496359142-b8d87734a5a2", 900);
+const PORTRAIT_IMG = IMG("1600210492486-724fe5c67fb0", 900);
 const AREA_IMG = IMG("1449844908441-8829872d2607", 1200);
 
 const LISTINGS = [
@@ -367,7 +367,7 @@ function About({ p }: { p: Params }) {
           <div className="relative overflow-hidden">
             <Image
               src={PORTRAIT_IMG}
-              alt={`Portrait of ${p.name}`}
+              alt="A modern home interior in Northern Virginia"
               width={720}
               height={900}
               className="w-full object-cover"
