@@ -15,19 +15,19 @@ Open the page and the realtor's name, company, contact details, reviews, and pag
 | `phone` | Realtor's phone               | `(703) 555-0142`                      |
 | `line`  | Custom tagline                | `A realtor site, built around you. …` |
 
-Example:
+Example (live at [dmvwebdev.vercel.app](https://dmvwebdev.vercel.app/)):
 
 ```
-https://yoursite.com/?to=James&name=James+Carter&co=Evergreen+Realty&email=james@evergreenrealty.com&phone=(571)+333-0101
+https://dmvwebdev.vercel.app/?to=James&name=James+Carter&co=Evergreen+Realty&email=james@evergreenrealty.com&phone=(571)+333-0101
 ```
 
 Everything below is personalized per request — the page `<title>`, the greeting, the "about" section, the review headlines, the contact block, and the `tel:` / `mailto:` links. All parameters are optional; the page renders sensible defaults without them.
 
 ## Outreach workflow (send to many realtors)
 
-1. Deploy once (e.g. Vercel).
+1. Deploy once (already live at `https://dmvwebdev.vercel.app/`).
 2. In a spreadsheet, add columns: `to`, `name`, `co`, `email`, `phone`, `line`.
-3. Build a link per realtor: `https://yoursite.com/?to={to}&name={name}&co={co}&email={email}&phone={phone}` (URL-encode spaces as `+` or `%20`).
+3. Build a link per realtor: `https://dmvwebdev.vercel.app/?to={to}&name={name}&co={co}&email={email}&phone={phone}` (URL-encode spaces as `+` or `%20`).
 4. Send each realtor their own link. One deploy, hundreds of personalized pages, zero extra hosting.
 
 ## Design

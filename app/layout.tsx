@@ -18,6 +18,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://dmvwebdev.vercel.app/"),
   title: "Realtor Showcase — Northern Virginia & the DMV",
   description:
     "A personal realtor showcase page for the DMV. One link, personalized per agent.",
