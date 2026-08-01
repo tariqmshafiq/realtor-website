@@ -5,7 +5,6 @@ type SearchParams = Promise<{
   [key: string]: string | string[] | undefined;
 }>;
 
-const DEFAULT_TO = "";
 const DEFAULT_CO = "Mitchell Realty Group";
 const DEFAULT_NAME = "Sarah Mitchell";
 const DEFAULT_EMAIL = "sarah@mitchellrealtygroup.com";
@@ -26,7 +25,6 @@ function readParam(
 
 function readParams(sp: Awaited<SearchParams>) {
   return {
-    to: readParam(sp, "to", DEFAULT_TO),
     co: readParam(sp, "co", DEFAULT_CO),
     name: readParam(sp, "name", DEFAULT_NAME),
     email: readParam(sp, "email", DEFAULT_EMAIL),
@@ -216,9 +214,6 @@ function Hero({ p }: { p: Params }) {
         <Eyebrow>
           {p.co} · Northern Virginia · The DMV
         </Eyebrow>
-        {p.to ? (
-          <p className="mt-6 text-base text-ink-400">Hi {p.to}, welcome.</p>
-        ) : null}
         <h1 className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.05] tracking-tight text-ink-950 sm:text-7xl">
           Meet {p.name}.
         </h1>
