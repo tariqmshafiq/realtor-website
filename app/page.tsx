@@ -39,13 +39,13 @@ const IMG = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
 
 const HERO_IMG =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Washington_Monument_and_Mall_at_Sunset.jpg/1920px-Washington_Monument_and_Mall_at_Sunset.jpg";
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/2021_Waterfront_Park%2C_Old_Town_Alexandria.jpg/1920px-2021_Waterfront_Park%2C_Old_Town_Alexandria.jpg";
 const PROFILE_IMG =
   "https://media.istockphoto.com/id/1214284287/vector/anonymous-gender-neutral-face-avatar-incognito-head-silhouette.jpg?s=612x612&w=0&k=20&c=z33R0MN3yX_-qIcIe_oJqz4QFuH0NwvWGN8TZZW48sk=";
 const PORTRAIT_IMG =
   "https://media.istockphoto.com/id/1214284287/vector/anonymous-gender-neutral-face-avatar-incognito-head-silhouette.jpg?s=612x612&w=0&k=20&c=z33R0MN3yX_-qIcIe_oJqz4QFuH0NwvWGN8TZZW48sk=";
 const AREA_IMG =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/National_Mall_and_Washington_Monument_2026.jpg/1920px-National_Mall_and_Washington_Monument_2026.jpg";
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Tysons_Skyline_viewed_from_Tysons_Corner_Center%E2%80%94dusk.jpg/1920px-Tysons_Skyline_viewed_from_Tysons_Corner_Center%E2%80%94dusk.jpg";
 
 const LISTINGS = [
   {
@@ -254,7 +254,7 @@ function Hero({ p }: { p: Params }) {
       <div className="relative h-[52vh] w-full overflow-hidden sm:h-[62vh]">
         <Image
           src={HERO_IMG}
-          alt="Washington Monument and the National Mall at sunset"
+          alt="Old Town Alexandria waterfront"
           fill
           priority
           sizes="100vw"
@@ -465,7 +465,7 @@ function Territory({ p }: { p: Params }) {
       <div className="relative mx-auto mt-16 aspect-[21/9] w-full max-w-6xl overflow-hidden px-5 sm:px-8">
         <Image
           src={AREA_IMG}
-          alt="The National Mall and Washington Monument in Washington, D.C."
+          alt="The Tysons skyline at dusk"
           fill
           sizes="100vw"
           className="object-cover"
