@@ -39,8 +39,10 @@ const IMG = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
 
 const HERO_IMG = IMG("1512917774080-9991f1c4c750", 2200);
-const PROFILE_IMG = "/silhouette.png";
-const PORTRAIT_IMG = "/silhouette.png";
+const PROFILE_IMG =
+  "https://media.istockphoto.com/id/1214284287/vector/anonymous-gender-neutral-face-avatar-incognito-head-silhouette.jpg?s=612x612&w=0&k=20&c=z33R0MN3yX_-qIcIe_oJqz4QFuH0NwvWGN8TZZW48sk=";
+const PORTRAIT_IMG =
+  "https://media.istockphoto.com/id/1214284287/vector/anonymous-gender-neutral-face-avatar-incognito-head-silhouette.jpg?s=612x612&w=0&k=20&c=z33R0MN3yX_-qIcIe_oJqz4QFuH0NwvWGN8TZZW48sk=";
 const AREA_IMG = IMG("1449844908441-8829872d2607", 1200);
 
 const LISTINGS = [
@@ -174,10 +176,10 @@ function Header({ p }: { p: Params }) {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <a href="#top" className="flex items-center gap-3">
           <span className="flex size-8 items-center justify-center border border-ink-950 font-display text-base font-bold text-ink-950">
-            {p.co.charAt(0)}
+            {p.name.charAt(0)}
           </span>
           <span className="font-display text-lg font-semibold tracking-tight text-ink-950">
-            {p.co}
+            {p.name} Realty
           </span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-ink-600 sm:flex">
