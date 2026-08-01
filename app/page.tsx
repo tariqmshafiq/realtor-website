@@ -5,13 +5,13 @@ type SearchParams = Promise<{
   [key: string]: string | string[] | undefined;
 }>;
 
-const DEFAULT_TO = "there";
+const DEFAULT_TO = "";
 const DEFAULT_CO = "Mitchell Realty Group";
 const DEFAULT_NAME = "Sarah Mitchell";
 const DEFAULT_EMAIL = "sarah@mitchellrealtygroup.com";
 const DEFAULT_PHONE = "(703) 555-0142";
 const DEFAULT_LINE =
-  "A realtor site, built around you. Every detail below is yours to use — your name, your company, your contact.";
+  "A realtor's work is measured in closings, not claims. Here's the proof.";
 
 function readParam(
   sp: Awaited<SearchParams>,
@@ -136,8 +136,8 @@ export async function generateMetadata({
   searchParams: SearchParams;
 }): Promise<Metadata> {
   const p = readParams(await searchParams);
-  const title = `${p.name} — a personal realtor page`;
-  const description = `This page was made for ${p.to}. ${p.name} of ${p.co} — Northern Virginia and the DMV. Contact ${p.phone} or ${p.email}.`;
+  const title = `${p.name} — Northern Virginia Realtor`;
+  const description = `${p.name} of ${p.co} — a realtor page for Northern Virginia and the DMV. ${p.phone} · ${p.email}`;
   return { title, description };
 }
 
@@ -216,14 +216,14 @@ function Hero({ p }: { p: Params }) {
         <Eyebrow>
           {p.co} · Northern Virginia · The DMV
         </Eyebrow>
-        <h1 className="mt-7 max-w-4xl font-display text-5xl font-medium leading-[1.05] tracking-tight text-ink-950 sm:text-7xl">
-          Hi {p.to}, welcome to your page.
+        {p.to ? (
+          <p className="mt-6 text-base text-ink-400">Hi {p.to}, welcome.</p>
+        ) : null}
+        <h1 className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.05] tracking-tight text-ink-950 sm:text-7xl">
+          Meet {p.name}.
         </h1>
         <p className="mt-7 max-w-xl text-lg leading-relaxed text-ink-600">
           {p.line}
-        </p>
-        <p className="mt-3 text-sm text-ink-400">
-          {p.name} · {p.co}
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <a
@@ -508,7 +508,7 @@ function Footer({ p }: { p: Params }) {
           {p.co} · Northern Virginia & the DMV
         </p>
         <p className="text-xs uppercase tracking-[0.2em] text-ink-400">
-          Made for {p.to} · Equal Housing Opportunity
+          Equal Housing Opportunity
         </p>
       </div>
     </footer>
