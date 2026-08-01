@@ -39,7 +39,7 @@ const IMG = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
 
 const HERO_IMG = IMG("1512917774080-9991f1c4c750", 2200);
-const PROFILE_IMG = IMG("1521119989659-a83eee488004", 400);
+const PROFILE_IMG = IMG("1522075469751-3a6694fb2f61", 400);
 const PORTRAIT_IMG = IMG("1600210492486-724fe5c67fb0", 900);
 const AREA_IMG = IMG("1449844908441-8829872d2607", 1200);
 
