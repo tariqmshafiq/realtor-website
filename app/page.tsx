@@ -39,8 +39,8 @@ const IMG = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
 
 const HERO_IMG = IMG("1512917774080-9991f1c4c750", 2200);
-const PROFILE_IMG = IMG("1522075469751-3a6694fb2f61", 400);
-const PORTRAIT_IMG = IMG("1522075469751-3a6694fb2f61", 900);
+const PROFILE_IMG = "/silhouette.png";
+const PORTRAIT_IMG = "/silhouette.png";
 const AREA_IMG = IMG("1449844908441-8829872d2607", 1200);
 
 const LISTINGS = [
@@ -375,8 +375,8 @@ function About({ p }: { p: Params }) {
             <Image
               src={PORTRAIT_IMG}
               alt={`Silhouette profile of ${p.name}`}
-              width={900}
-              height={900}
+              width={800}
+              height={800}
               className="w-full object-cover"
             />
           </div>
