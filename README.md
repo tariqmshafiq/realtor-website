@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Realtor Showcase — DMV / Northern Virginia
 
-## Getting Started
+A personalized realtor showcase site for the DMV area. One page, one deploy, hundreds of "personalized" pages — each URL fills in the viewer's name and your contact details from query parameters (mail-merge style).
 
-First, run the development server:
+## URL parameters
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Param   | Meaning            | Default                               |
+| ------- | ------------------ | ------------------------------------- |
+| `to`    | Visitor's name     | `there`                               |
+| `co`    | Company name       | `Mitchell Realty Group`               |
+| `name`  | Your name          | `Sarah Mitchell`                      |
+| `email` | Your email         | `sarah@mitchellrealtygroup.com`       |
+| `phone` | Your phone         | `(703) 555-0142`                      |
+| `line`  | Custom tagline     | `Your trusted guide to buying and selling in Northern Virginia.` |
+
+Example:
+
+```
+https://yoursite.com/?to=Sarah&co=Acme+Realty&name=Jane+Doe&email=jane@acme.com&phone=(555)+214-9999&line=Let%27s+find+your+dream+home+in+the+DMV.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Everything (page `<title>`, hero greeting, bio, reviews, CTA buttons, `mailto:`/`tel:` links) is personalized per request. Params are optional — the page renders sensible defaults without them.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Mail-merge workflow
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Deploy once (e.g. Vercel).
+2. In a spreadsheet, add columns: `to`, `co`, `name`, `email`, `phone`, `line`.
+3. Generate a link per row: `https://yoursite.com/?to={to}&co={co}&name={name}&email={email}&phone={phone}` (URL-encode spaces as `+` or `%20`).
+4. Send each person their own link.
 
-## Learn More
+## Dev
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev       # http://localhost:3000
+npm run lint      # eslint
+npm run build     # production build (static page generates per request — route is dynamic)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Images are served from Unsplash via `next/image` (see `next.config.ts`).
