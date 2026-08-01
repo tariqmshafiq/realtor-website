@@ -39,6 +39,7 @@ const IMG = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
 
 const HERO_IMG = IMG("1512917774080-9991f1c4c750", 2200);
+const PROFILE_IMG = IMG("1521119989659-a83eee488004", 400);
 const PORTRAIT_IMG = IMG("1600210492486-724fe5c67fb0", 900);
 const AREA_IMG = IMG("1449844908441-8829872d2607", 1200);
 
@@ -214,9 +215,20 @@ function Hero({ p }: { p: Params }) {
         <Eyebrow>
           {p.co} · Northern Virginia · The DMV
         </Eyebrow>
-        <h1 className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.05] tracking-tight text-ink-950 sm:text-7xl">
-          Meet {p.name}.
-        </h1>
+        <div className="mt-6 flex items-center gap-5 sm:gap-7">
+          <div className="relative size-16 shrink-0 overflow-hidden rounded-full border border-ink-100 sm:size-24">
+            <Image
+              src={PROFILE_IMG}
+              alt={`Profile photo of ${p.name}`}
+              fill
+              sizes="96px"
+              className="object-cover"
+            />
+          </div>
+          <h1 className="max-w-3xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-ink-950 sm:text-7xl">
+            Meet {p.name}.
+          </h1>
+        </div>
         <p className="mt-7 max-w-xl text-lg leading-relaxed text-ink-600">
           {p.line}
         </p>
