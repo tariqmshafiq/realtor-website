@@ -40,7 +40,7 @@ const IMG = (id: string, w = 1600) =>
 
 const HERO_IMG = IMG("1512917774080-9991f1c4c750", 2200);
 const PROFILE_IMG = IMG("1522075469751-3a6694fb2f61", 400);
-const PORTRAIT_IMG = IMG("1600210492486-724fe5c67fb0", 900);
+const PORTRAIT_IMG = IMG("1522075469751-3a6694fb2f61", 900);
 const AREA_IMG = IMG("1449844908441-8829872d2607", 1200);
 
 const LISTINGS = [
@@ -374,8 +374,8 @@ function About({ p }: { p: Params }) {
           <div className="relative overflow-hidden">
             <Image
               src={PORTRAIT_IMG}
-              alt="A modern home interior in Northern Virginia"
-              width={720}
+              alt={`Silhouette profile of ${p.name}`}
+              width={900}
               height={900}
               className="w-full object-cover"
             />
